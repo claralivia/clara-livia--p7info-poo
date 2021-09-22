@@ -17,4 +17,4 @@ while True:
     if user == '0':
         break
 biggestword = max(wordlist, key=len)
-print("\nThe biggest word is: " + biggestword)
+print("\nA maior palavra é: " + biggestword)
