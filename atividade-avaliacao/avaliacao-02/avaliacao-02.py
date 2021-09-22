@@ -4,7 +4,7 @@ i = a = 0
 biggestword = 0
 b = "-"
 while True:
-    phrase = str(input("\nDigite uma frase? "))
+    phrase = str(input("\nDigite uma frase: "))
     words = phrase.split()
     for i in words:
         size.append(str(len(i)))
