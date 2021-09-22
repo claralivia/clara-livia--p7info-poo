@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 size = list()
 wordlist = list()
 a = i = biggestword = 0
