@@ -1,7 +1,6 @@
 size = list()
 wordlist = list()
-i = a = 0
-biggestword = 0
+a = i = biggestword = 0
 b = "-"
 while True:
     phrase = str(input("\nDigite uma frase: "))
