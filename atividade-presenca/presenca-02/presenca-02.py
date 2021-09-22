@@ -1,11 +1,25 @@
-import random
+def printDecimal(dec):
+    return dec
 
-def random_numero():
-    lista = []
-    for i in range(0, 6):
-        x = random.randint(1,61)
-        lista.append(x)
+def printOctal(o):
+    oct = format(o, "o")
+    return oct
 
-    return lista
+def printHexadecimal(h):
+    hex = format(h, "x")
+    return hex
 
-print(*random_numero())
+def printBinario(b):
+    bin = format(b, "b")
+    return bin
+
+def imprimaTela(d, o, h, b):
+    return("{:<9d} {:>9s} {:>15s} {:>26s}".format(d, o, h, b))
+
+
+print("{:<9s} {:>9s} {:>15s} {:>26s}".format('Decimal', 'Octal', 'Hexadecimal', 'Binário'))
+for i in range(0, 70):
+      print("-", end="")
+print("\n", end="")
+for x in range(0, 256):
+    print(imprimaTela(printDecimal(x), printOctal(x), printHexadecimal(x), printBinario(x)))
