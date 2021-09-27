@@ -13,7 +13,7 @@ def printBinario(b):
     bin = format(b, "b")
     return bin
 
-def imprimaTela(d, o, h, b):
+def imprimirTabela(d, o, h, b):
     return("{:<9d} {:>9s} {:>15s} {:>26s}".format(d, o, h, b))
 
 
@@ -22,4 +22,4 @@ for i in range(0, 70):
       print("-", end="")
 print("\n", end="")
 for x in range(0, 256):
-    print(imprimaTela(printDecimal(x), printOctal(x), printHexadecimal(x), printBinario(x)))
+    print(imprimirTabela(printDecimal(x), printOctal(x), printHexadecimal(x), printBinario(x)))
