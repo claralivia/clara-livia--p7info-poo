@@ -10,7 +10,6 @@ def primo(p):
      return False
     
 def somando(z):
-
  listt = list()
  x = 0
  while len(listt) < z:
