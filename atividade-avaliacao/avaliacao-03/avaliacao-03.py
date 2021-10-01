@@ -1,6 +1,4 @@
-
-
-
+# -*- coding: utf-8 -*-
 def primo(p):
  contador = 0
  for i in range(1, p+1):
@@ -12,7 +10,6 @@ def primo(p):
      return False
     
 def somando(z):
-
  listt = list()
  x = 0
  while len(listt) < z:
@@ -24,4 +21,3 @@ def somando(z):
     
 n = int(input("Digite um número não negativo: "))
 print(f"A soma dos primeiros {n} números primos é: {somando(n)}")
-
