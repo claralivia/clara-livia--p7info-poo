@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class Pilha:
   def __init__(self):
       self.element = list()
