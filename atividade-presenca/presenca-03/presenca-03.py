@@ -1,4 +1,4 @@
-pilha = ['apple', 'cherry', 'grape', 'lemon', 'melon']
+pilha = list()
 print("Pilha: ", pilha)
 
 def inserir(nome):
