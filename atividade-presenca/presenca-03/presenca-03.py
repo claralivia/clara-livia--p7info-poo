@@ -2,7 +2,7 @@ pilha = ['apple', 'cherry', 'grape', 'lemon', 'melon']
 print("Pilha: ", pilha)
 
 def inserir(nome):
-    pilha.append('orange')
+    pilha.append(nome)
     print('\nInserindo um elemento: ', pilha)
 
 def remover():
