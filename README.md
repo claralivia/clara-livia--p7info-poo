@@ -1,9 +1,7 @@
 
-# P7 Info - POO
+# P7 Info - Clara Lívia Moura de Oliveira
+
+# Atividades de Programação Orientada a Objetos 💻
 Atividades de Avaliação e Presença.
-
-
-# Olá, eu sou a Clara Lívia! 👋
-
   
 
