@@ -1,9 +1,9 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///./notafiscalbd.db'
-app.debug = True
+tela = Flask(__name__)
+tela.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+tela.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///./notafiscalbd.db'
+tela.debug = True
 
-bancodados = SQLAlchemy(app)
+bancodados = SQLAlchemy(tela)
