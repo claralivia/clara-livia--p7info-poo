@@ -8,14 +8,14 @@
         valorUnitario - informado. 
 """
 
-from DB import db
+from BANCO import bancodados
 
-class Produto(db.Model):
+class Produto(bancodados.Model):
     __tablename__ = 'TB_PRODUTO'
-    id = db.Column(db.Integer, primary_key=True)
-    codigo = db.Column(db.Integer, nullable=False)
-    descricao = db.Column(db.String, nullable=False)
-    valorUnitario = db.Column(db.Float, nullable=False)
+    id = bancodados.Column(bancodados.Integer, primary_key=True)
+    codigo = bancodados.Column(bancodados.Integer, nullable=False)
+    descricao = bancodados.Column(bancodados.String, nullable=False)
+    valorUnitario = bancodados.Column(bancodados.Float, nullable=False)
 
     def __init__(self, id, codigo, descricao, valorUnitario):
         super().__init__(id=id, codigo=codigo, descricao=descricao, valorUnitario=valorUnitario)
@@ -35,7 +35,7 @@ class Produto(db.Model):
 if __name__ == '__main__':
     produto = Produto(id=1, codigo=100, descricao="Arroz Agulha", valorUnitario=5.5)
     print(produto.str())
-    db.session.add(produto)
-    db.session.commit()
+    bancodados.session.add(produto)
+    bancodados.session.commit()
         
         

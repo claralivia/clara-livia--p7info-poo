@@ -9,22 +9,23 @@
             items     - informado
             valornota - calculado. 
 """
-import datetime
 from cliente        import Cliente
+from tipocliente import TipoCliente
+from datetime       import date
 from itemnotafiscal import ItemNotaFiscal
-from DB import db
+from BANCO import bancodados
 
 
-class NotaFiscal(db.Model):
+class NotaFiscal(bancodados.Model):
     __tablename__ = 'TB_NOTA_FISCAL'
-    id = db.Column(db.Integer, primary_key=True)
-    codigo = db.Column(db.Integer, nullable=False)
-    clienteID = db.Column(db.Integer, db.ForeignKey("TB_CLIENTE.id"), nullable=False)
-    data = db.Column(db.String, nullable=False)
-    itens = db.relationship("ItemNotaFiscal", backref="NotaFiscal", lazy=True)
+    id = bancodados.Column(bancodados.Integer, primary_key=True)
+    codigo = bancodados.Column(bancodados.Integer, nullable=False)
+    clienteID = bancodados.Column(bancodados.Integer, bancodados.ForeignKey("TB_CLIENTE.id"), nullable=False)
+    data = bancodados.Column(bancodados.String, nullable=False)
+    itens = bancodados.relationship("ItemNotaFiscal", backref="NotaFiscal", lazy=True)
 
     def __init__(self, Id, codigo, cliente):
-        super().__init__(id=id, codigo=codigo, clienteID=clienteID, data=datetime.datetime.now().strftime("%d-%m-%Y"))      
+        super().__init__(id=id, codigo=codigo, clienteID=clienteID, data=date.strftime('%d/%m/%Y'))
         
     def calcularNotaFiscal(self):
         valor = 0
@@ -41,25 +42,27 @@ class NotaFiscal(db.Model):
         return cliente
 
     def imprimirNotaFiscal(self):
-        print("---------------------------------------------------------------------------------------------------------------")
-        print("{:101}{}".format("NOTA FISCAL",self.data))
-        print("Cliente:     {:<10}Nome: {} Tipo: {}".format(self.getCliente()["codigo"], 
-                                                            self.getCliente()["nome"], 
-                                                            self.getCliente()["tipo"]))
-        print("CPF/CNPJ:    {}".format(self.getCliente()["cnpjcpf"]))
-        print("---------------------------------------------------------------------------------------------------------------")
-        print("ITENS")
-        print("---------------------------------------------------------------------------------------------------------------")
-        print("{:4s} {:56s}      {:3s}       {:^10s}       {:^15s}".format("Seq","Descrição","QTD","Valor unit", "preço"))
-        print("---- --------------------------------------------------------     -----     ------------     ------------------")
-        for item in self.itens:
-            print("{:4s} {:56s}      {:>3s}       {:>10s}       {:>15s}".format(str(item.sequencial),
-                                                                                str(item.descricao),
-                                                                                str(item.quantidade),
-                                                                                str(item.valorUnitario),
-                                                                                str(item.valorItem)
-                                                                                ))
-        print("_______________________________________________________________________________________________________________")
-        self.calcularNotaFiscal()
-        print("Valor Nota Fiscal= " + str(self.valorNota))
-    
+        def separar(num):
+            for i in range(0, num):
+                print('-', end='')
+
+        separar(104)
+        print('\n{0:<46}{1:>47}'.format('NOTA FISCAL', ' '), end=' ')
+        print(f'{self._data}')
+        print(f'Cliente: {self._cliente._codigo}\t Nome: {self._cliente._nome}')
+        print(f'CPF/CNPJ: {self._cliente._cnpjcpf}')
+        separar(104)
+        print('\nITEMS')
+        separar(104)
+        print('\n{0:<8}{1:<40}{2:>15}{3:>20}{4:^22}'.format('Seq', 'Descrição', 'QTD', 'Valor Unit', 'Preço'))
+        print(
+            '----   -------------------------------------------------   -----   -----------------   -----------------')
+        for c in range(0, 3):
+            print('{0:<8}{1:<40}{2:>15}{3:>20}{4:>20}'.format(self._itens[c].getSequencial(),
+                                                              self._itens[c].getDescricao(),
+                                                              self._itens[c].getQuantidade(),
+                                                              self._itens[c].getValorUnitario(),
+                                                              self._itens[c].getValorItem()))
+        separar(104)
+        print('\nValor Total:', self.valorNota)
+        separar(104)

@@ -12,14 +12,15 @@
 """
 
 from tipocliente  import TipoCliente
+from BANCO import bancodados
 
-class Cliente(db.Molel):
+class Cliente(bancodados.Molel):
     __tablename__ = 'TB_CLIENTE'
-    id = db.Column(db.Integer, primary_key=True)
-    nome = db.Column(db.String, nullable=False)
-    codigo = db.Column(db.Integer, nullable=False)
-    cnpjcpf = db.Column(db.String, nullable=False)
-    tipo = db.Column(db.Integer, nullable=False)
+    id = bancodados.Column(bancodados.Integer, primary_key=True)
+    nome = bancodados.Column(bancodados.String, nullable=False)
+    codigo = bancodados.Column(bancodados.Integer, nullable=False)
+    cnpjcpf = bancodados.Column(bancodados.String, nullable=False)
+    tipo = bancodados.Column(bancodados.Integer, nullable=False)
 
     def __init__(self, id, nome, codigo, cnpjcpf, tipo):
         super().__init__(id=id, nome=nome, codigo=codigo, cnpjcpf=cnpjcpf, tipo=tipo)

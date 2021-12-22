@@ -2,7 +2,7 @@
 """
 
 from notafiscal import NotaFiscal
-from produto    import Produto
+from produto import Produto
 
 class NotaFiscal_Produto():
     

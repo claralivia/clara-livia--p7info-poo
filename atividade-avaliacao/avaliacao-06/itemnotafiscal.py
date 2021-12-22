@@ -9,15 +9,15 @@
         valor      - calculado.            
 """
 from produto import Produto
-from DB import db
+from BANCO import bancodados
 
-class ItemNotaFiscal(db.Model):
+class ItemNotaFiscal(bancodados.Model):
     __tablename__ = 'TB_ITEM_NF'
-    id = db.Column(db.Integer, primary_key=True)
-    sequencial = db.Column(db.Integer, nullable=False)
-    quantidade = db.Column(db.Integer, nullable=False)
-    produtoID = db.Column(db.Integer, db.ForeignKey("TB_PRODUTO.id"), nullable=False)
-    NotaFiscalID = db.Column(db.Integer, db.ForeignKey("TB_NOTA_FISCAL.id"), nullable=False)
+    id = bancodados.Column(bancodados.Integer, primary_key=True)
+    sequencial = bancodados.Column(bancodados.Integer, nullable=False)
+    quantidade = bancodados.Column(bancodados.Integer, nullable=False)
+    produtoID = bancodados.Column(bancodados.Integer, bancodados.ForeignKey("TB_PRODUTO.id"), nullable=False)
+    NotaFiscalID = bancodados.Column(bancodados.Integer, bancodados.ForeignKey("TB_NOTA_FISCAL.id"), nullable=False)
   
     def __init__(self, id, sequencial, quantidade, produto):
         super().__init__(id=id, sequencial=sequencial,
